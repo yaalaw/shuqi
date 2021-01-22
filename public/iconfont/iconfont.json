@@ -1,17 +1,10 @@
 {
-  "id": "2343727",
-  "name": "onze",
+  "id": "2344540",
+  "name": "shuqi",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
-    {
-      "icon_id": "17436700",
-      "name": "心跳",
-      "font_class": "xintiao",
-      "unicode": "e600",
-      "unicode_decimal": 58880
-    },
     {
       "icon_id": "996206",
       "name": "404",
@@ -25,6 +18,20 @@
       "font_class": "icon-test",
       "unicode": "e60a",
       "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "17436700",
+      "name": "心跳",
+      "font_class": "xintiao",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "6185354",
+      "name": "明星",
+      "font_class": "mingxing",
+      "unicode": "e607",
+      "unicode_decimal": 58887
     }
   ]
 }

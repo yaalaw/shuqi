@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>相册盒</title>
+	<style>
+		* {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		li {
+			/*li去下划线*/
+			list-style: none;
+		}
+
+		.box {
+			position: relative;
+			width: 200px;
+			height: 200px;
+			margin: 300px auto;
+			transform-style: preserve-3d;
+			animation: rotate 5s linear infinite;
+			/*background-color: #00FFFF;*/
+
+		}
+
+		.onebox li {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			margin: auto;
+		}
+
+		.onebox li:nth-child(1) {
+			transform: translateY(-50px) rotateX(90deg);
+			background: url(images/zhuyilong01.jpg) no-repeat;
+			background-size: 100% 100%;
+		}
+
+		.onebox li:nth-child(2) {
+			transform: translateY(50px) rotateX(90deg);
+			background: url(images/zhuyilong02.jpg) no-repeat;
+			background-size: 100% 100%;
+		}
+
+		.onebox li:nth-child(3) {
+			transform: translatex(-50px) rotateY(90deg);
+			background: url(images/zhuyilong03.jpg) no-repeat;
+			background-size: 100% 100%;
+		}
+
+		.onebox li:nth-child(4) {
+			transform: translateX(50px) rotateY(90deg);
+			background: url(images/zhuyilong04.jpg) no-repeat;
+			background-size: 100% 100%;
+		}
+
+		.onebox li:nth-child(5) {
+			transform: translateZ(50px);
+			background: url(images/zhuyilong05.jpg) no-repeat;
+			background-size: 100% 100%;
+		}
+
+		.onebox li:nth-child(6) {
+			transform: translateZ(-50px);
+			background: url(images/zhuyilong06.jpg) no-repeat;
+			background-size: 100% 100%;
+		}
+
+		.twobox {
+			position: relative;
+			width: 200px;
+			height: 200px;
+
+		}
+
+		.twobox li {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			margin: auto;
+			opacity: 0.3;
+			transition: all linear 1s;
+		}
+
+		.twobox li:nth-child(1) {
+			transform: translateY(-100px) rotateX(90deg);
+			background: url(images/zhuyilong07.jpg);
+			background-size: 100% 100%;
+		}
+
+		.twobox li:nth-child(2) {
+			transform: translateY(100px) rotateX(90deg);
+			background: url(images/zhuyilong08.jpg);
+			background-size: 100% 100%;
+		}
+
+		.twobox li:nth-child(3) {
+			transform: translateX(-100px) rotateY(90deg);
+			background: url(images/zhuyilong09.jpg);
+			background-size: 100% 100%;
+		}
+
+		.twobox li:nth-child(4) {
+			transform: translateX(100px) rotateY(90deg);
+			background: url(images/zhuyilong10.jpg);
+			background-size: 100% 100%;
+		}
+
+		.twobox li:nth-child(5) {
+			transform: translateZ(100px);
+			background: url(images/zhuyilong11.jpg);
+			background-size: 100% 100%;
+		}
+
+		.twobox li:nth-child(6) {
+			transform: translateZ(-100px);
+			background: url(images/zhuyilong12.jpg);
+			background-size: 100% 100%;
+		}
+
+		.twobox:hover li:nth-child(1) {
+			transform: translateY(-300px) rotateX(90deg) scale(2);
+			opacity: 0.8;
+		}
+
+		.twobox:hover li:nth-child(2) {
+			transform: translateY(300px) rotateX(90deg) scale(2);
+			opacity: 0.8;
+		}
+
+		.twobox:hover li:nth-child(3) {
+			transform: translateX(-300px) rotateY(90deg) scale(2);
+			opacity: 0.8;
+		}
+
+		.twobox:hover li:nth-child(4) {
+			transform: translateX(300px) rotateY(90deg) scale(2);
+			opacity: 0.8;
+		}
+
+		.twobox:hover li:nth-child(5) {
+			transform: translateZ(300px) scale(2);
+			opacity: 0.8;
+		}
+
+		.twobox:hover li:nth-child(6) {
+			transform: translateZ(-300px) scale(2);
+			opacity: 0.8;
+		}
+
+		@keyframes rotate {
+			0% {
+				transform: rotateX(13deg) rotateY(0deg);
+			}
+
+			100% {
+				transform: rotateX(13deg) rotateY(360deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<ul class="onebox">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ol class="twobox">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+	</div>
+</body>
+<!--给WordPress网站添加鼠标点击爱心特效-->
+<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
+<script type="text/javascript" src="static/dianjitexiao/aixintexiao.js"></script>
+</html>
