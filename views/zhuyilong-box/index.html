@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="../../public/iconfont/iconfont.css">
 	<title>相册盒</title>
 	<style>
 		* {
@@ -168,6 +169,38 @@
 				transform: rotateX(13deg) rotateY(360deg);
 			}
 		}
+
+		.back-div {
+			text-align: center;
+			font-size: 22px;
+			width: 100%;
+			font-family: "微软雅黑";
+			color: rgb(43, 45, 54);
+			background-color: transparent;
+			border: 0;
+			
+			z-index: 999;
+			border-radius: 5px;
+			text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+			transition: opacity 0.2s ease;
+		}
+
+		.back-div:hover {
+			opacity: 0.7;
+		}
+
+		.back-div:focus {
+			outline: 0;
+		}
+
+		.font-back{
+			cursor: pointer;
+			font-size: 36px;
+			color: rgb(223, 89, 41);
+		}
+		.font-back:hover{
+			color: lime;
+		}
 	</style>
 </head>
 
@@ -190,8 +223,10 @@
 			<li></li>
 		</ol>
 	</div>
+	<div class="back-div"><i class="iconfont icon-fanhui font-back" onClick="javascript :history.back(-1);"></i></div>
 </body>
 <!--给WordPress网站添加鼠标点击爱心特效-->
 <canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
 <script type="text/javascript" src="../../static/dianjitexiao/aixintexiao.js"></script>
+
 </html>
