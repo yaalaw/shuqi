@@ -78,6 +78,7 @@
 </div>
 </body>
 <script src="../../public/vue/vue.min.js"></script>
+<script src="../../public/axios/axios.min.js"></script>
 <script>
   var data = [
     {lineDate:"2020-12-30",lineTitle:"我们第一次见面啦",lineContent:"&nbsp&nbsp&nbsp&nbsp历时一百多天我们终于见面啦，那一天等了好久，见到她时她好害羞，连走路都要隔个一米远，还经常躲在小角落，然后我躲起来她就悄悄的过来看，太可爱啦",linePicture:"",lineColor:""},
@@ -100,6 +101,11 @@
           return sortByKey(this.timeLines,'lineDate')
         }
       },
+      created: function () {
+        var self = this
+        console.log('加载成功')
+        self.list()
+      },
       methods: {
         dengMethods() {
           this.dengFlag=!this.dengFlag
@@ -108,7 +114,15 @@
           }else{
             document.querySelector('body').setAttribute('style', 'background: #F2F6FC')
           }
-        }
+        },
+        list () {
+          var self = this
+          var url = 'http://qnfvcctxb.hn-bkt.clouddn.com/timeline.json?e=1451491200'
+          axios.get(url).then(function(response) {
+            console.log(response)
+            timeLines = response.data
+          })
+        },
       }
   })
   function sortByKey(array,key){
