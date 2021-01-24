@@ -62,14 +62,14 @@
   </h2>
 
   <section id="cd-timeline" class="cd-container">
-    <template v-for="timeLine,index in timeLines">
+    <template v-for="timeLine,index in sorttimeLines">
       <div class="cd-timeline-block">
         <div class="cd-timeline-img cd-movie">
           <img src="../../assets/images/shuqi/shuqi01.jpg" alt="丢失啦" class="shuqi-image">
         </div>
         <div class="cd-timeline-content">
           <h2>{{ timeLine.lineTitle }}</h2>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;{{ timeLine.lineContent }}</p>
+          <p v-html="timeLine.lineContent"></p>
           <span class="cd-date">{{ timeLine.lineDate }}</span>
         </div>
       </div>
@@ -80,14 +80,25 @@
 <script src="../../public/vue/vue.min.js"></script>
 <script>
   var data = [
-    {lineDate:"2020-12-30",lineTitle:"我们第一次见面啦",lineContent:"历时一百多天我们终于见面啦，那一天等了好久，见到她时她好害羞，连走路都要隔个一米远，还经常躲在小角落，然后我躲起来她就悄悄的过来看，太可爱啦",linePicture:"",lineColor:""},
-    {lineDate:"2020-08-25",lineTitle:"我们在一起啦",lineContent:"那年七夕我们因为七夕蛤蟆相遇，在她的狂轰滥炸之下我答应了做她男朋友，我那时也没想到我们会那样在一起",linePicture:"",lineColor:""},
+    {lineDate:"2020-12-30",lineTitle:"我们第一次见面啦",lineContent:"&nbsp&nbsp&nbsp&nbsp历时一百多天我们终于见面啦，那一天等了好久，见到她时她好害羞，连走路都要隔个一米远，还经常躲在小角落，然后我躲起来她就悄悄的过来看，太可爱啦",linePicture:"",lineColor:""},
+    {lineDate:"2020-08-25",lineTitle:"我们在一起啦",lineContent:"&nbsp&nbsp&nbsp&nbsp那年七夕我们因为七夕蛤蟆相遇，在她的狂轰滥炸之下我答应了做她男朋友，我那时也没想到我们会那样在一起",linePicture:"",lineColor:""},
+    {lineDate:"2021-01-15",lineTitle:"她的爱好",lineContent:"1. 要学会做小洋柿子、糖醋里脊、京酱肉丝、糖醋排骨、土豆烧肉、鱼香肉丝、fu的面面的豆角、菠萝炒饭<br>2. 下次吵架她不理你的时候，"
+              +"记得发消息告诉她，乱想可以，但别担心，我在爱你<br>3. 学习做花朵馄饨<br>4. 喜欢吃圣女果，薯片<br>5. 想要仙女棒",linePicture:"",lineColor:""},
+    {lineDate:"2020-09-09",lineTitle:"情敌笔记",lineContent:"情敌一：青梅竹马，从小一起长大，一米八，经常互怼<br>情敌二：大约去年十月认识，经常评论，聊的还行，喜欢她，有试探性表白，大约一米七<br>"
+              +"情敌三：隔壁助教，一米九，对他没感觉，有叫别人表白，拒绝了，经常说mua的，觉得恶心<br>情敌四：前任，虽然没啥也算上一个吧",linePicture:"",lineColor:""},
+    {lineDate:"2020-09-09",lineTitle:"我的宝贝",lineContent:"身高：166cm<br>体重：120（目前）<br>爱好：吃东西睡觉玩游戏<br>腰围：72cm<br>胸围：82cm<br>生日：2000年11月21日<br>"
+              +"喜欢的颜色：天蓝色、薄荷绿、淡紫色<br>喜欢吃乐事的青柠味和所有番茄味的，咸蛋黄夹心小饼干，柠檬酸辣无骨鸡爪",linePicture:"",lineColor:""},
   ]
   new Vue({
       el: '#app',
       data: {
           timeLines: data,
           dengFlag: false
+      },
+      computed:{
+        sorttimeLines:function(){
+          return sortByKey(this.timeLines,'lineDate')
+        }
       },
       methods: {
         dengMethods() {
@@ -100,6 +111,12 @@
         }
       }
   })
-  
+  function sortByKey(array,key){
+    return array.sort(function(a,b){
+        var x=a[key];
+        var y=b[key];
+        return ((x>y)?-1:((x<y)?1:0))
+    })
+  }
   </script>
 </html>
