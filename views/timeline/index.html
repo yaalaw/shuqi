@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../public/iconfont/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>时间轴</title>
+  <style type="text/css">
+    .shuqi-image{
+      height: 40px;
+      width: 40px;
+    }
+    .font-icon{
+      font-size: 60px;
+    }
+    .font-icon:hover{
+      color:skyblue;
+      cursor: pointer;
+    }
+    .font-div1{
+      padding: 20px 0 0 50px;
+      float: left;
+    }
+    .font-div2{
+      padding: 20px 50px 0 0;
+      float: right;
+    }
+    .font-div{
+      width: 100%;
+      height: 60px;
+    }
+    .body-bg-t{
+      background-color: #F2F6FC;
+    }
+    .body-bg-f{
+      background-color: black;
+    }
+    .color-white{
+      color :white;
+      text-decoration: none;
+    }
+    .color-black{
+      color: #303133;
+      text-decoration: none;
+    }
+  </style>
+
+</head>
+
+<body>
+<div id="app">
+  <div class="font-div">
+    
+    <div class="font-div1"><i :class="dengFlag?'iconfont icon-guandeng font-icon':'iconfont icon-kaideng font-icon'" @click="dengMethods()"></i></div>
+    <div class="font-div2"><i class="iconfont icon-fanhui1 font-icon" onClick="javascript :history.back(-1);"></i></div>
+  </div>
+  <h2 class="top_title">
+    <a href="https://yaalaw.github.io/shuqi/" :class="dengFlag?'color-white':'color-black'">王淑琪的专属网站</a>
+    <br/><span>我和王淑琪的时间线</span>
+  </h2>
+
+  <section id="cd-timeline" class="cd-container">
+    <template v-for="timeLine,index in timeLines">
+      <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-movie">
+          <img src="../../assets/images/shuqi/shuqi01.jpg" alt="丢失啦" class="shuqi-image">
+        </div>
+        <div class="cd-timeline-content">
+          <h2>{{ timeLine.lineTitle }}</h2>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;{{ timeLine.lineContent }}</p>
+          <span class="cd-date">{{ timeLine.lineDate }}</span>
+        </div>
+      </div>
+    </template>
+  </section>
+</div>
+</body>
+<script src="../../public/vue/vue.min.js"></script>
+<script>
+  var data = [
+    {lineDate:"2020-12-30",lineTitle:"我们第一次见面啦",lineContent:"历时一百多天我们终于见面啦，那一天等了好久，见到她时她好害羞，连走路都要隔个一米远，还经常躲在小角落，然后我躲起来她就悄悄的过来看，太可爱啦",linePicture:"",lineColor:""},
+    {lineDate:"2020-08-25",lineTitle:"我们在一起啦",lineContent:"那年七夕我们因为七夕蛤蟆相遇，在她的狂轰滥炸之下我答应了做她男朋友，我那时也没想到我们会那样在一起",linePicture:"",lineColor:""},
+  ]
+  new Vue({
+      el: '#app',
+      data: {
+          timeLines: data,
+          dengFlag: false
+      },
+      methods: {
+        dengMethods() {
+          this.dengFlag=!this.dengFlag
+          if(this.dengFlag){
+            document.querySelector('body').setAttribute('style', 'background: black')
+          }else{
+            document.querySelector('body').setAttribute('style', 'background: #F2F6FC')
+          }
+        }
+      }
+  })
+  
+  </script>
+</html>

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<METAHTTP-EQUIV="Pragma"CONTENT="no-cache">
-<METAHTTP-EQUIV="Cache-Control"CONTENT="no-cache">
-<METAHTTP-EQUIV="Expires"CONTENT="0">
+<meta http-equiv="pragram" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="public/reset.css">
 <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css">
@@ -40,6 +39,9 @@
   <div class="page" onclick="toLove()">
     <i class="iconfont icon-xintiao font-icon"></i>
   </div>
+  <div class="page" onclick="toTimeLine()">
+    <i class="iconfont icon-shijianxian font-icon"></i>
+  </div>
   <div class="page" onclick="toZhuyilongBox()">
     <i class="iconfont icon-mingxing font-icon"></i>
   </div>
@@ -70,6 +72,11 @@
   function toLove(){
     window.location="views/love/index.html"
   }
+  function toTimeLine(){
+    window.location="views/timeline/index.html"
+  }
+
+  
 </script>
 <!--给WordPress网站添加鼠标点击爆炸五颜六色特效-->
 <canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
